@@ -1,0 +1,3 @@
+function rompiobloque(jugador){
+    
+}
