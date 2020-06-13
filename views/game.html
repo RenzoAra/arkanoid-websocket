@@ -14,6 +14,38 @@
     <div class="container p-2 col-xs col-sm col-md">
         <canvas id="myCanvas" width="740" height="480"></canvas>
     </div>
+    <div class="container p-2 col-xs col-sm col-md">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
 
 <script>
     var canvas = document.getElementById("myCanvas");
@@ -81,6 +113,7 @@
                         dy = -dy;
                         b.status = 0;
                         score++;
+                        socket.emit('nuevoPunto', {text: userName.value, timestamp: new Date()});
                         if(score == brickRowCount*brickColumnCount) {
                             document.location.reload();
                         }
@@ -179,6 +212,10 @@
     }
 
     draw();
+
+    socket.on('nuevoPunto', (data) => {
+        $('#mensajes').append($('<li>').text(data.salida + ": " + data.text +  " ||    " + data.timestamp));
+    })
 </script>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
