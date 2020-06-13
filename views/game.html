@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="container p-2 col-xs col-sm col-md">
-        <canvas id="myCanvas" width="480" height="320"></canvas>
+        <canvas id="myCanvas" width="740" height="480"></canvas>
     </div>
 
 <script>
@@ -28,8 +28,8 @@
     var paddleX = (canvas.width-paddleWidth)/2;
     var rightPressed = false;
     var leftPressed = false;
-    var brickRowCount = 5;
-    var brickColumnCount = 3;
+    var brickRowCount = 8;
+    var brickColumnCount = 5;
     var brickWidth = 75;
     var brickHeight = 20;
     var brickPadding = 10;
@@ -154,7 +154,6 @@
             else {
                 lives--;
                 if(!lives) {
-                    alert("GAME OVER");
                     document.location.reload();
                 }
                 else {
