@@ -25,10 +25,16 @@
 </div>
 
 <div class="container">
-  <div class="btn-group-vertical btn-group-lg " style="display: block; margin: 0 auto">
-    <button type="button" class="btn btn-primary" onclick="location.href='./game.html'" >Iniciar juego</button>
-    <button type="button" class="btn btn-primary">Ver tabla posiciones</button>
-    <button type="button" class="btn btn-primary">Instrucciones</button>
-    <button type="button" class="btn btn-primary" onclick="location.href='./login.html'">Salir</button>
-  </div>
+    <Form action = "/game" method = "GET">
+      <button id="Iniciar_juego" type="submit" class="btn btn-primary">Iniciar juego</button>
+    </Form>
+    <Form action = "/tabla" method = "GET">
+      <button id="Ranking" type="submit" class="btn btn-primary">Ver Ranking</button>
+    </Form>
+    <Form action = "/inst" method = "GET">
+      <button id="Instrucciones" type="submit" class="btn btn-primary">Instrucciones</button>
+    </Form>
+    <Form action = "/" method = "GET">
+      <button id="Salir" type="submit" class="btn btn-primary">Salir</button>
+    </Form>
 </div>
