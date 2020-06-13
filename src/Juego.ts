@@ -3,8 +3,7 @@ import {Jugador} from './jugador'
 
 export class Juego{
 
-    public tablapuntaje : Array<Jugador>
-
+    public tablapuntaje : Array<Jugador> = []
     constructor (){
     }
 
@@ -25,10 +24,11 @@ export class Juego{
 
     public buscarJugadorPorNombre(nombre : string){
         for(let i = 0; i < this.tablapuntaje.length; i++){
-            if(this.tablapuntaje[i].nombre = nombre){
+            if(this.tablapuntaje[i].nombre == nombre){
                 return this.tablapuntaje[i]
             }
         }
+        return null
     }
 
     public sumarPuntaje(nombre : string){
