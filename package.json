@@ -1,0 +1,36 @@
+{
+  "name": "arkanoid-websocket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha -r ts-node/register test/*.test.ts",
+    "coverage": "nyc --reporter=text npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RenzoAra/arkanoid-websocket.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RenzoAra/arkanoid-websocket/issues"
+  },
+  "homepage": "https://github.com/RenzoAra/arkanoid-websocket#readme",
+  "devDependencies": {
+    "@types/chai": "^4.2.10",
+    "@types/mocha": "^7.0.2",
+    "mocha": "^7.1.0",
+    "nyc": "^15.0.0"
+  },
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.0.1",
+    "nyc": "^15.1.0",
+    "ts-node": "^8.10.2"
+  }
+}
