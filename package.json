@@ -7,11 +7,6 @@
     "doc": "docs",
     "test": "test"
   },
-<<<<<<< HEAD
-  "scripts": {
-    "test": "mocha -r ts-node/register test/*.test.ts",
-    "coverage": "nyc --reporter=text npm run test"
-=======
   "dependencies": {
     "@types/node": "^14.0.13",
     "chai": "^4.2.0",
@@ -31,9 +26,8 @@
   "scripts": {
     "start": "node dist/server.js",
     "dev": "nodemon src/server.ts",
-    "test": "mocha",
+    "test": "mocha -r ts-node/register test/**/*.ts",
     "build": "tsc -p ."
->>>>>>> 36c383465a8c294e8970981718a48fe1dcbd7ba1
   },
   "repository": {
     "type": "git",
@@ -44,21 +38,5 @@
   "bugs": {
     "url": "https://github.com/RenzoAra/arkanoid-websocket/issues"
   },
-<<<<<<< HEAD
-  "homepage": "https://github.com/RenzoAra/arkanoid-websocket#readme",
-  "devDependencies": {
-    "@types/chai": "^4.2.10",
-    "@types/mocha": "^7.0.2",
-    "mocha": "^7.1.0",
-    "nyc": "^15.0.0"
-  },
-  "dependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^8.0.1",
-    "nyc": "^15.1.0",
-    "ts-node": "^8.10.2"
-  }
-=======
   "homepage": "https://github.com/RenzoAra/arkanoid-websocket#readme"
->>>>>>> 36c383465a8c294e8970981718a48fe1dcbd7ba1
 }

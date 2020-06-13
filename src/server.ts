@@ -32,5 +32,5 @@ io.on('connection', function(socket){
 
 
 http.listen(3000, function(){
-  console.log('listo en puerto :3000');
+  console.log('listo en puerto 3000');
 });
