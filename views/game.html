@@ -113,7 +113,6 @@
                         dy = -dy;
                         b.status = 0;
                         score++;
-                        socket.emit('nuevoPunto', {text: userName.value, timestamp: new Date()});
                         if(score == brickRowCount*brickColumnCount) {
                             document.location.reload();
                         }
