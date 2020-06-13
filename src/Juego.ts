@@ -3,25 +3,27 @@ import {Jugador} from './jugador'
 
 export class Juego{
 
-    private tablapuntaje : Array<Jugador>
-    
+    public tablapuntaje : Array<Jugador>
+
     constructor (){
     }
-    
-    private iniciarPartida(){}
-    
-    private crearNombreInvitado(){}
 
-    private instanciarinvitado(){}
+    public crearNombreInvitado(){}
+
+    public instanciarinvitado(){}
     
-    private instanciarJugador(nombre : string){
+    public nuevoJugador(nombre : string){
         this.tablapuntaje.push(new Jugador(nombre))
     }
+
+    public añadirJugador(p : Jugador){
+        this.tablapuntaje.push(p)
+    }
     
-    private ranking(){
+    public ranking(){
     }
 
-    private buscarJugadorPorNombre(nombre : string){
+    public buscarJugadorPorNombre(nombre : string){
         for(let i = 0; i < this.tablapuntaje.length; i++){
             if(this.tablapuntaje[i].nombre = nombre){
                 return this.tablapuntaje[i]

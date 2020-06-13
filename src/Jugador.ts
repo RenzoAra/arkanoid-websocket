@@ -1,10 +1,11 @@
 export class Jugador{
     
     nombre : string
-    puntaje : number = 0
+    puntaje : number
     
     constructor (nombre : string){
         this.nombre = nombre
+        this.puntaje = 0
     }
 
     public sumarPuntaje(){
