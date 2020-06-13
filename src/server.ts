@@ -10,7 +10,7 @@ var body_parser = require('body-parser');
 app.use(body_parser.urlencoded({extended:true}));
 
 app.get('/', function(req, res){
-    res.render('login');
+    res.render('game');
   });
 
   app.post('/',function(req,res){
