@@ -10,8 +10,23 @@ var body_parser = require('body-parser');
 app.use(body_parser.urlencoded({extended:true}));
 
 app.get('/', function(req, res){
+    res.render('login');
+  });
+
+  app.get('/tabla', function(req, res){
+    res.render('tabla');
+  });
+
+
+  app.get('/inst', function(req, res){
+    res.render('inst');
+  });
+
+
+  app.get('/game', function(req, res){
     res.render('game');
   });
+
 
   app.post('/',function(req,res){
     var entrada = req.body.textbox;
