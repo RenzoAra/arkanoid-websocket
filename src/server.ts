@@ -21,8 +21,8 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', function(socket){
-  socket.on('nuevoMensaje', (data) => {
-      io.emit('nuevoMensaje', data)
+  socket.on('nuevoPunto', (data) => {
+      io.emit('nuevoPunto', data)
   })
   socket.on('nuevoUsuarioConectado', (data) => {
     io.emit('nuevoUsuarioConectado', data)
