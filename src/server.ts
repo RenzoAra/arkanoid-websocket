@@ -15,9 +15,7 @@ app.get('/', function(req, res){
 
   app.post('/',function(req,res){
     var entrada = req.body.textbox;
-    res.render('salaChat',{locals:{salida: entrada}});
-    io.emit('nuevoUsuarioConectado', {timestamp: new Date(), salida: entrada});
-
+    res.render('menu',{locals:{salida: entrada}});
 });
 
 io.on('connection', function(socket){

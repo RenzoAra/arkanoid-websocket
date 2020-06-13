@@ -1,20 +1,14 @@
 export class Jugador{
     
     nombre : string
-    puntajeporpartida : number[]
-    puntajes: Array<number>
+    puntaje : number = 0
     
-    constructor (){
+    constructor (nombre : string){
+        this.nombre = nombre
     }
 
-    /*21:05 partida1 1
-    21:05 partida1 1
-    21:05 partida1 1*/
-
-    private sumarpuntaje(){}
-
-    private puntajetotal(){}
-
-
+    public sumarPuntaje(){
+        this.puntaje = this.puntaje + 1
+    }
     
-}
+}export default Jugador
