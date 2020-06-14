@@ -25,8 +25,9 @@
 </div>
 
 <div class="container">
-    <Form action = "/game" method = "GET">
+    <Form action = "/game" method = "POST">
       <button id="Iniciar_juego" type="submit" class="btn btn-primary">Iniciar juego</button>
+      <Input name="textbox" id="usuario" class="form-control" aria-label="Nombre de usuario:" aria-describedby="inputGroup-sizing-default" type="text" value="${salida}"style="display: none">
     </Form>
     <Form action = "/tabla" method = "GET">
       <button id="Ranking" type="submit" class="btn btn-primary">Ver Ranking</button>
