@@ -7,9 +7,13 @@ export class Juego{
     constructor (){
     }
 
-    public crearNombreInvitado(){}
+    public crearNombreInvitado(){
+        return "Invitado "+Math.floor(Math.random() * 1001);
+    }
 
-    public instanciarinvitado(){}
+    public añadirInvitado(){
+        this.tablapuntaje.push(new Jugador(this.crearNombreInvitado()))
+    }
     
     public nuevoJugador(nombre : string){
         this.tablapuntaje.push(new Jugador(nombre))
@@ -20,6 +24,9 @@ export class Juego{
     }
     
     public ranking(){
+        this.tablapuntaje.sort(function (a, b){
+            return (b.puntaje - a.puntaje)
+        })
     }
 
     public buscarJugadorPorNombre(nombre : string){
@@ -35,4 +42,4 @@ export class Juego{
         this.buscarJugadorPorNombre(nombre).sumarPuntaje();
     }
 
-}export default Jugador
+}export default Juego

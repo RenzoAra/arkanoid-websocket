@@ -1,5 +1,16 @@
 import { expect } from "chai";
-import Jugador, { Juego } from "../src/Juego";
+import { Juego } from "../src/Juego";
+import { Jugador } from "../src/Jugador";
+
+
+describe('Jugador', function() {
+  it('sumarPuntaje', function() {
+    let j = new Jugador("Elais")
+    j.sumarPuntaje()
+    expect(j.puntaje).equal(1);
+  });
+});
+
 
 describe('Juego', function() {
   it('nuevoJugador', function() {
@@ -19,6 +30,21 @@ describe('Juego', function() {
 });
 
 describe('Juego', function() {
+  it('CrearNombreInvitado', function() {
+    let j = new Juego()
+    expect(j.crearNombreInvitado().startsWith("Invitado ")).equal(true);
+  });
+});
+
+describe('Juego', function() {
+  it('añadirInvitado', function() {
+    let j = new Juego()
+    j.añadirInvitado()
+    expect(j.tablapuntaje.length).equal(1);
+  });
+});
+
+describe('Juego', function() {
     it('buscarJugadorPorNombre', function() {
       let j = new Juego()
       let p = new Jugador("Jose")
@@ -33,6 +59,64 @@ describe('Juego', function() {
       let p = new Jugador("Jose")
       j.añadirJugador(p)
       expect(j.buscarJugadorPorNombre("luis")).equal(null);
+    });
+  });
+
+  describe('Juego', function() {
+    it('Ranking', function() {
+      let j = new Juego()
+      j.nuevoJugador("Osvaldo")
+      j.nuevoJugador("Matias")
+      j.nuevoJugador("Tito")
+      j.nuevoJugador("Juan")
+      for(let i = 0; i < 20; i++){
+        j.sumarPuntaje("Tito")
+      }
+      for(let i = 0; i < 20; i++){
+        if(i%2==0){
+          j.sumarPuntaje("Matias")
+        }
+        else{
+          j.sumarPuntaje("Juan")
+        }
+      }
+      j.ranking()
+      console.log(j.tablapuntaje)
+      expect(j.tablapuntaje[0].nombre).equal("Tito");
+    });
+  });
+
+  describe('Juego', function() {
+    it('Ranking2', function() {
+      let j = new Juego()
+      j.nuevoJugador("Osvaldo")
+      j.nuevoJugador("Matias")
+      j.nuevoJugador("Tito")
+      j.nuevoJugador("Juan")
+      j.nuevoJugador("Leti")
+      j.nuevoJugador("Vito")
+      j.nuevoJugador("Samuel")
+      for(let i = 0; i < 20; i++){
+        j.sumarPuntaje("Tito")
+        if(i%5==0){
+          j.sumarPuntaje("Samuel")
+        }
+      }
+      for(let i = 0; i < 35; i++){
+        if(i%2==0){
+          j.sumarPuntaje("Matias")
+        }
+        else if(i%3==0){
+          j.sumarPuntaje("Leti")
+          j.sumarPuntaje("Vito")
+        }
+        else{
+          j.sumarPuntaje("Juan")
+        }
+      }
+      j.ranking()
+      console.log(j.tablapuntaje)
+      expect(j.tablapuntaje[0].nombre).equal("Tito");
     });
   });
 

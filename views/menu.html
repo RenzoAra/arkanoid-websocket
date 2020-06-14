@@ -21,13 +21,14 @@
       </style>
 <div id="particles-js" style="position : absolute; width:100%; height:100%; z-index:-1; background-color: #000000"></div>
   
-  <div class="container">
-    <img src="../logo.jpg" width="600" class="img-fluid wall" style="display: block; margin: 0 auto">
-  </div>
+<div class="container">
+    <img src="../img/logo.jpg" width="600" class="img-fluid wall" style="display: block; margin: 0 auto">
+</div>
 
-  <div class="container">
-    <Form action = "/game" method = "GET">
-      <button id="Iniciar_juego" type="submit" class="btn btn-primary btn-lg">Iniciar juego</button>
+<div class="container">
+    <Form action = "/game" method = "POST">
+      <button id="Iniciar_juego" type="submit" class="btn btn-primary">Iniciar juego</button>
+      <Input name="textbox" id="usuario" class="form-control" aria-label="Nombre de usuario:" aria-describedby="inputGroup-sizing-default" type="text" value="${salida}"style="display: none">
     </Form>
     <Form action = "/tabla" method = "GET">
       <button id="Ranking" type="submit" class="btn btn-primary btn-lg">Ver Ranking</button>
