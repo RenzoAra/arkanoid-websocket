@@ -19,22 +19,30 @@
             font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
         }
       </style>
+<div id="particles-js" style="position : absolute; width:100%; height:100%; z-index:-1; background-color: #000000"></div>
+  
+  <div class="container">
+    <img src="../logo.jpg" width="600" class="img-fluid wall" style="display: block; margin: 0 auto">
+  </div>
 
-<div class="container">
-    <img src="../img/logo.jpg" width="600" class="img-fluid wall" style="display: block; margin: 0 auto">
-</div>
-
-<div class="container">
+  <div class="container">
     <Form action = "/game" method = "GET">
-      <button id="Iniciar_juego" type="submit" class="btn btn-primary">Iniciar juego</button>
+      <button id="Iniciar_juego" type="submit" class="btn btn-primary btn-lg">Iniciar juego</button>
     </Form>
     <Form action = "/tabla" method = "GET">
-      <button id="Ranking" type="submit" class="btn btn-primary">Ver Ranking</button>
+      <button id="Ranking" type="submit" class="btn btn-primary btn-lg">Ver Ranking</button>
     </Form>
     <Form action = "/inst" method = "GET">
-      <button id="Instrucciones" type="submit" class="btn btn-primary">Instrucciones</button>
+      <button id="Instrucciones" type="submit" class="btn btn-primary btn-lg">Instrucciones</button>
     </Form>
     <Form action = "/" method = "GET">
-      <button id="Salir" type="submit" class="btn btn-primary">Salir</button>
+      <button id="Salir" type="submit" class="btn btn-primary btn-lg">Salir</button>
     </Form>
+  </div>
 </div>
+
+<script src="../particles/particles.js"></script>
+<script src="../particles/app.js"></script>
+
+</body>
+</html>

@@ -1,4 +1,7 @@
-var app = require('express')();
+var particlesJS = require('particles.js')
+const path = require('path')
+const express = require('express');
+const app = express();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 var es6Renderer = require('express-es6-template-engine');
@@ -8,6 +11,12 @@ app.set('views', 'views');
 app.set('view engine', 'html');
 var body_parser = require('body-parser');
 app.use(body_parser.urlencoded({extended:true}));
+
+app.use(express.static(path.join(__dirname,'../img')));
+
+/*particlesJS.load('particles-js', 'assets/particles.json', function() {
+  console.log('callback - particles.js config loaded');
+});*/
 
 app.get('/', function(req, res){
     res.render('login');
