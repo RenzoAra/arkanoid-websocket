@@ -27,8 +27,13 @@ app.get('/', function(req, res){
     res.render('menu',{locals:{salida: entrada}});
 });
 
+  app.post('/Invitado',function(req,res){
+    j.añadirInvitado()
+    res.render('menu',{locals:{salida: ""}});
+});
+
   app.get('/tabla', function(req, res){
-    res.render('tabla');
+    res.render('tabla',{locals:{tabla : j.tablapuntaje}});
   });
 
 
@@ -45,15 +50,9 @@ app.get('/', function(req, res){
 io.on('connection', function(socket){
   socket.on('nuevoPunto', (data) => {
   })
-  socket.on('nuevoUsuarioConectado', (data) => {
-    io.emit('nuevoUsuarioConectado', data)
-})
-  socket.on('usuarioDesconexion', (data) => {
-    io.emit('usuarioDesconexion', data)
-  })
 });
 
 
-http.listen(3000, function(){
+http.listen(3001, function(){
   console.log('listo en puerto 3000');
 });
