@@ -1,5 +1,5 @@
 import Juego from "./Juego";
-//const particlesJS = require('particles.js')
+
 const path = require('path')
 const express = require('express');
 const app = express();
@@ -13,11 +13,9 @@ var body_parser = require('body-parser');
 app.use(body_parser.urlencoded({extended:true}));
 var j = new Juego();
 
-app.use(express.static(path.join(__dirname,'../img')));
+app.use(express.static(path.join(__dirname,'../particles')));
 
-/*particlesJS.load('particles-js', 'assets/particles.json', function() {
-  console.log('callback - particles.js config loaded');
-});*/
+app.use(express.static(path.join(__dirname,'../img')));
 
 app.get('/', function(req, res){
     res.render('login');
