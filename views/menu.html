@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Menu</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <head>
+    <meta charset="utf-8" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>MENU</title>
 </head>
 <body>
 
@@ -29,19 +30,21 @@
   </div>
 
   <div class="container">
+    <center>
       <Form action = "/game" method = "POST">
-        <button id="Iniciar_juego" type="submit" class="btn btn-primary btn-lg">Iniciar juego</button>
+        <button id="Iniciar_juego" type="submit" class="btn btn-primary btn-lg" style="margin: 10px; width:240px; height:64px;">Iniciar juego</button>
         <Input name="textbox" id="usuario" class="form-control" aria-label="Nombre de usuario:" aria-describedby="inputGroup-sizing-default" type="text" value="${salida}"style="display: none">
       </Form>
       <Form action = "/tabla" method = "GET">
-        <button id="Ranking" type="submit" class="btn btn-primary btn-lg">Ver Ranking</button>
+        <button id="Ranking" type="submit" class="btn btn-primary btn-lg" style="margin: 10px; width:240px; height:64px;">Ver Ranking</button>
       </Form>
       <Form action = "/inst" method = "GET">
-        <button id="Instrucciones" type="submit" class="btn btn-primary btn-lg">Instrucciones</button>
+        <button id="Instrucciones" type="submit" class="btn btn-primary btn-lg" style="margin: 10px; width:240px; height:64px;">Instrucciones</button>
       </Form>
       <Form action = "/" method = "GET">
-        <button id="Salir" type="submit" class="btn btn-primary btn-lg">Salir</button>
+        <button id="Salir" type="submit" class="btn btn-primary btn-lg" style="margin: 10px; width:240px; height:64px;">Salir</button>
       </Form>
+    </center>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
@@ -51,6 +54,10 @@
       console.log('particles.json loaded...');
     });
   </script>
-  
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>  
 </body>
 </html>

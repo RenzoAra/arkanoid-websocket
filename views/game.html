@@ -49,13 +49,28 @@
     </div>
 
 <script>
+    var context= new AudioContext();
+ 
+ function jsNota(frecuencia){
+         var o= context.createOscillator();
+         g=context.createGain();
+         o.connect(g);
+         o.type="triangle";
+         o.frequency.value=frecuencia;
+         g.connect(context.destination);
+         o.start(0);
+         g.gain.exponentialRampToValueAtTime(0.0000000000000000000000000001,context.currentTime +0.6);
+     }
+</script>
+
+<script>
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
     var ballRadius = 10;
     var x = canvas.width/2;
     var y = canvas.height-30;
     var dx = 2;
-    var dy = -2;
+    var dy = -8;
     var paddleHeight = 10;
     var paddleWidth = 75;
     var paddleX = (canvas.width-paddleWidth)/2;
@@ -115,7 +130,8 @@
                         dy = -dy;
                         b.status = 0;
                         score++;
-                        socket.emit('nuevoPunto', {nombre: document.getElementById("nombre").innerHTML.toString()})
+                        jsNota(267.32);
+                        //socket.emit('nuevoPunto', {nombre: document.getElementById("nombre").innerHTML.toString()})
                         if(score == brickRowCount*brickColumnCount) {
                             document.location.reload();
                         }
