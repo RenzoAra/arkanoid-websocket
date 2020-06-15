@@ -48,20 +48,7 @@
           </table>
     </div>
 
-<script>
-    var context= new AudioContext();
- 
- function jsNota(frecuencia){
-         var o= context.createOscillator();
-         g=context.createGain();
-         o.connect(g);
-         o.type="triangle";
-         o.frequency.value=frecuencia;
-         g.connect(context.destination);
-         o.start(0);
-         g.gain.exponentialRampToValueAtTime(0.0000000000000000000000000001,context.currentTime +0.6);
-     }
-</script>
+    <script src="/socket.io/socket.io.js"></script>
 
 <script>
     var canvas = document.getElementById("myCanvas");
@@ -85,7 +72,10 @@
     var brickOffsetLeft = 30;
     var score = 0;
     var lives = 3;
+    var context= new AudioContext();
+    var socket = io();
 
+ 
     var bricks = [];
     for(var c=0; c<brickColumnCount; c++) {
         bricks[c] = [];
@@ -120,6 +110,17 @@
             paddleX = relativeX - paddleWidth/2;
         }
     }
+
+    function jsNota(frecuencia){
+         var o= context.createOscillator();
+         g=context.createGain();
+         o.connect(g);
+         o.type="triangle";
+         o.frequency.value=frecuencia;
+         g.connect(context.destination);
+         o.start(0);
+         g.gain.exponentialRampToValueAtTime(0.0000000000000000000000000001,context.currentTime +0.6);
+    }
     
     function collisionDetection() {
         for(var c=0; c<brickColumnCount; c++) {
@@ -131,7 +132,7 @@
                         b.status = 0;
                         score++;
                         jsNota(267.32);
-                        //socket.emit('nuevoPunto', {nombre: document.getElementById("nombre").innerHTML.toString()})
+                        console.log(socket.emit('nuevoPunto', {nombre: document.getElementById("nombre").innerHTML.toString()}));
                         if(score == brickRowCount*brickColumnCount) {
                             document.location.reload();
                         }
