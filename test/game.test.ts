@@ -5,12 +5,20 @@ import { Jugador } from "../src/Jugador";
 
 describe('Jugador', function() {
   it('sumarPuntaje', function() {
-    let j = new Jugador("Elais")
+    let j = new Jugador("Elais", 0)
     j.sumarPuntaje()
     expect(j.puntaje).equal(1);
   });
 });
 
+describe('Jugador', function() {
+  it('sumarPuntajeInvitado', function() {
+    let j = new Juego()
+    j.añadirInvitado()
+    j.sumarPuntaje(j.tablapuntaje[0].nombre)
+    expect(j.tablapuntaje[0].puntaje).equal(1);
+  });
+});
 
 describe('Juego', function() {
   it('nuevoJugador', function() {
@@ -23,7 +31,7 @@ describe('Juego', function() {
 describe('Juego', function() {
   it('añadirJugador', function() {
     let j = new Juego()
-    let p = new Jugador("Jose")
+    let p = new Jugador("Jose", 0)
     j.añadirJugador(p)
     expect(j.tablapuntaje.length).equal(1);
   });
@@ -45,18 +53,36 @@ describe('Juego', function() {
 });
 
 describe('Juego', function() {
+  it('quitarInvitado', function() {
+    let j = new Juego()
+    j.quitarInvitado(j.añadirInvitado())
+    expect(j.tablapuntaje.length).equal(0);
+  });
+});
+
+describe('Juego', function() {
+  it('quitarInvitadoNoExiste', function() {
+    let j = new Juego()
+    j.nuevoJugador("Manuel")
+    j.quitarInvitado("Manuel")
+    expect(j.tablapuntaje.length).equal(1);
+  });
+});
+
+
+describe('Juego', function() {
     it('buscarJugadorPorNombre', function() {
       let j = new Juego()
-      let p = new Jugador("Jose")
+      let p = new Jugador("Jose", 0)
       j.añadirJugador(p)
-      expect(j.buscarJugadorPorNombre("Jose")).equal(p);
+      expect(j.buscarJugadorPorNombre("Jose")).equal(0);
     });
   });
 
   describe('Juego', function() {
     it('buscarJugadorPorNombre', function() {
       let j = new Juego()
-      let p = new Jugador("Jose")
+      let p = new Jugador("Jose", 0)
       j.añadirJugador(p)
       expect(j.buscarJugadorPorNombre("luis")).equal(null);
     });
@@ -125,7 +151,7 @@ describe('Juego', function() {
       let j = new Juego()
       j.nuevoJugador("Jose")
       j.sumarPuntaje("Jose")
-      expect(j.buscarJugadorPorNombre("Jose").puntaje).equal(1);
+      expect(j.tablapuntaje[j.buscarJugadorPorNombre("Jose")].puntaje).equal(1);
     });
   });
 
@@ -136,6 +162,6 @@ describe('Juego', function() {
       for(let i = 0; i < 20; i++){
         j.sumarPuntaje("Jose")
       }
-      expect(j.buscarJugadorPorNombre("Jose").puntaje).equal(20);
+      expect(j.tablapuntaje[j.buscarJugadorPorNombre("Jose")].puntaje).equal(20);
     });
   });
