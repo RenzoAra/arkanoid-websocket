@@ -40,10 +40,10 @@ app.post('/',function(req,res){
     console.log(j.tablapuntaje)
 });
 
-  app.get('/tabla', function(req, res){
-    res.render('tabla',{locals:{tabla : j.tablapuntaje}});
+  app.post('/tabla', function(req, res){
+    var entrada = req.body.textbox;
+    res.render('tabla',{locals:{salida: entrada}});
   });
-
 
   app.get('/inst', function(req, res){
     res.render('inst');
@@ -61,15 +61,16 @@ app.post('/',function(req,res){
     res.render('game',{locals:{salida: entrada}});
   });
 
-
 io.on('connection', function(socket){
+  socket.on('ranking', (data) => {
+    io.emit('ranking', j.ranking())
+  })
   socket.on('nuevoPunto', (data) => {
     j.sumarPuntaje(data.nombre)
     console.log(j.ranking())
     io.emit('nuevoPunto', j.ranking())
   })
 });
-
 
 http.listen(3000, function(){
   console.log('listo en puerto 3000');
