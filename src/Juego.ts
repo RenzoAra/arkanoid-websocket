@@ -13,11 +13,19 @@ export class Juego{
     }
 
     public añadirInvitado(){
-        this.tablapuntaje.push(new Jugador(this.crearNombreInvitado()))
+        let i = new Jugador(this.crearNombreInvitado(), 1)
+        this.tablapuntaje.push(i)
+        return i.nombre
+    }
+
+    public quitarInvitado(nombre : string){
+        if(this.tablapuntaje[this.buscarJugadorPorNombre(nombre)].tipo == 1){
+           this.tablapuntaje.splice(this.buscarJugadorPorNombre(nombre), 1) 
+        }
     }
     
     public nuevoJugador(nombre : string){
-        this.tablapuntaje.push(new Jugador(nombre))
+        this.tablapuntaje.push(new Jugador(nombre, 0))
     }
 
     public añadirJugador(p : Jugador){
@@ -25,23 +33,24 @@ export class Juego{
     }
     
     public ranking(){
-        this.tablapuntaje.sort(function (a, b){
+        let a = this.tablapuntaje
+        a.sort(function (a, b){
             return (b.puntaje - a.puntaje)
         })
-        return this.tablapuntaje
+        return a
     }
 
     public buscarJugadorPorNombre(nombre : string){
         for(let i = 0; i < this.tablapuntaje.length; i++){
             if(this.tablapuntaje[i].nombre == nombre){
-                return this.tablapuntaje[i]
+                return i
             }
         }
         return null
     }
 
     public sumarPuntaje(nombre : string){
-        this.buscarJugadorPorNombre(nombre).sumarPuntaje();
+          this.tablapuntaje[this.buscarJugadorPorNombre(nombre)].sumarPuntaje();
     }
 
 }export default Juego
