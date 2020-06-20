@@ -53,6 +53,8 @@
         }
     }
 
+    socket.emit('ranking', {nombre: document.getElementById("nombre").innerHTML.toString()});
+
     document.addEventListener("keydown", keyDownHandler, false);
     document.addEventListener("keyup", keyUpHandler, false);
     document.addEventListener("mousemove", mouseMoveHandler, false);
@@ -201,12 +203,21 @@
 
     draw();
 
+    socket.on('ranking', (data) => {
+      var foo = data.map(function(bar){
+        return '<li>'+'Usuario: '+bar.nombre+' || Puntaje: '+bar.puntaje+'</li>'
+      })
+      document.getElementById("foo").innerHTML = foo;
+    })
+
     socket.on('nuevoPunto', (data) => {
       var foo = data.map(function(bar){
         return '<li>'+'Usuario: '+bar.nombre+' || Puntaje: '+bar.puntaje+'</li>'
       })
       document.getElementById("foo").innerHTML = foo;
     })
+
+    
 </script>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
