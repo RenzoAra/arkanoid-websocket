@@ -17,6 +17,8 @@ app.use(express.static(path.join(__dirname,'../particles')));
 
 app.use(express.static(path.join(__dirname,'../img')));
 
+app.use(express.static(path.join(__dirname,'../views')));
+
 app.get('/', function(req, res){
     res.render('login');
   });
