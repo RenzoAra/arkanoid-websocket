@@ -132,7 +132,7 @@
                         b.status = 0;
                         score++;
                         jsNota(267.32);
-                        console.log(socket.emit('nuevoPunto', {nombre: document.getElementById("nombre").innerHTML.toString()}));
+                        socket.emit('nuevoPunto', {nombre: document.getElementById("nombre").innerHTML.toString()});
                         if(score == brickRowCount*brickColumnCount) {
                             document.location.reload();
                         }
@@ -232,11 +232,11 @@
 
     draw();
 
-    /*socket.on('nuevoRanking', (data) => {
+    socket.on('nuevoRanking', (data) => {
         for(let i = 0; i < data.lenght; i++){
             $('#ranking').append($('<td>').text(data[i].nombre + ": " + data[i].puntaje));
         }
-    })*/
+    })
 </script>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

@@ -24,6 +24,7 @@ app.get('/', function(req, res){
   app.post('/',function(req,res){
     var entrada = req.body.textbox;
     j.nuevoJugador(entrada)
+    console.log(j.tablapuntaje)
     res.render('menu',{locals:{salida: entrada}});
 });
 
@@ -49,6 +50,8 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
   socket.on('nuevoPunto', (data) => {
+    j.sumarPuntaje(data.nombre)
+    console.log(j.ranking())
   })
 });
 

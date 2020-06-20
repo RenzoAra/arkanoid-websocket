@@ -1,4 +1,5 @@
 import {Jugador} from './jugador'
+import { throws } from 'assert';
 
 
 export class Juego{
@@ -27,6 +28,7 @@ export class Juego{
         this.tablapuntaje.sort(function (a, b){
             return (b.puntaje - a.puntaje)
         })
+        return this.tablapuntaje
     }
 
     public buscarJugadorPorNombre(nombre : string){
