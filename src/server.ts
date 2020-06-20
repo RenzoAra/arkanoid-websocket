@@ -66,6 +66,7 @@ io.on('connection', function(socket){
   socket.on('nuevoPunto', (data) => {
     j.sumarPuntaje(data.nombre)
     console.log(j.ranking())
+    io.emit('nuevoPunto', j.ranking())
   })
 });
 
