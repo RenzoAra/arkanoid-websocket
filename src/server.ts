@@ -23,16 +23,21 @@ app.get('/', function(req, res){
     res.render('login');
   });
 
-  app.post('/',function(req,res){
+app.post('/',function(req,res){
     var entrada = req.body.textbox;
-    j.nuevoJugador(entrada)
-    console.log(j.tablapuntaje)
+    if(j.buscarJugadorPorNombre(entrada)==null){
+      j.nuevoJugador(entrada)
+      console.log(j.tablapuntaje)
+    }
+    else{
+      console.log(j.tablapuntaje)
+    }
     res.render('menu',{locals:{salida: entrada}});
 });
 
   app.post('/Invitado',function(req,res){
-    j.añadirInvitado()
-    res.render('menu',{locals:{salida: ""}});
+    res.render('menu',{locals:{salida: j.añadirInvitado()}});
+    console.log(j.tablapuntaje)
 });
 
   app.get('/tabla', function(req, res){
@@ -42,6 +47,13 @@ app.get('/', function(req, res){
 
   app.get('/inst', function(req, res){
     res.render('inst');
+  });
+  
+  app.post('/salir', function(req, res){
+    var entrada = req.body.textbox;
+    j.quitarInvitado(entrada)
+    console.log(j.tablapuntaje)
+    res.render('login');
   });
 
   app.post('/game', function(req, res){
