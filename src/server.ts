@@ -53,6 +53,7 @@ app.post('/',function(req,res){
     var entrada = req.body.textbox;
     j.quitarInvitado(entrada)
     console.log(j.tablapuntaje)
+    io.emit('ranking', j.ranking())
     res.render('login');
   });
 

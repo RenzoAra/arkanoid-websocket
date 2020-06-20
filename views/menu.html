@@ -30,6 +30,7 @@
 
   <div class="container">
     <center>
+      <label id ="nombre" display = 'block' style="display: none">${salida}</label>
       <Form action = "/game" method = "POST">
         <button id="Iniciar_juego" type="submit" class="btn btn-primary btn-lg" style="margin: 10px; width:240px; height:64px;">Iniciar juego</button>
         <Input name="textbox" id="usuario" class="form-control" aria-label="Nombre de usuario:" aria-describedby="inputGroup-sizing-default" type="text" value="${salida}"style="display: none">
@@ -49,8 +50,12 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
+  <script src="/socket.io/socket.io.js"></script>
   <script>
+    var socket = io();
+
+    socket.emit('ranking', {nombre: document.getElementById("nombre").innerHTML.toString()});
+    
     particlesJS.load('particles-js','../particles.json',function(){
       console.log('particles.json loaded...');
     });
