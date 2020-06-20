@@ -15,38 +15,7 @@
         <canvas id="myCanvas" width="740" height="480"></canvas>
     </div>
     <label id ="nombre" display = 'block' style="display: none">${salida}</label>
-    <div class="container p-2 col-xs col-sm col-md">
-        <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
-    </div>
+    <ol id='foo'></ol>
 
     <script src="/socket.io/socket.io.js"></script>
 
@@ -232,10 +201,11 @@
 
     draw();
 
-    socket.on('nuevoRanking', (data) => {
-        for(let i = 0; i < data.lenght; i++){
-            $('#ranking').append($('<td>').text(data[i].nombre + ": " + data[i].puntaje));
-        }
+    socket.on('nuevoPunto', (data) => {
+      var foo = data.map(function(bar){
+        return '<li>'+'Usuario: '+bar.nombre+' || Puntaje: '+bar.puntaje+'</li>'
+      })
+      document.getElementById("foo").innerHTML = foo;
     })
 </script>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
