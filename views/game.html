@@ -16,6 +16,7 @@
         <canvas id="myCanvas" width="740" height="480"></canvas>
     </div>
     <label id ="nombre" display = 'block' style="display: none">${salida}</label>
+    <br> 
     <center>
         <ol class="list-group" id='foo'></ol>
     </center>
@@ -220,14 +221,14 @@
 
     socket.on('ranking', (data) => {
           var foo = data.map(function(bar){
-            return '<li class="list-group-item list-group-item-light">'+'Usuario: '+bar.nombre+' || Puntaje: '+bar.puntaje+'</li>'
+            return '<li type="button" class="btn btn-outline-light">'+'Usuario: '+bar.nombre+' || Puntaje: '+bar.puntaje+'</li>'
           })
           document.getElementById("foo").innerHTML = foo;
         })
     
         socket.on('nuevoPunto', (data) => {
           var foo = data.map(function(bar){
-            return '<li class="list-group-item list-group-item-light">'+'Usuario: '+bar.nombre+' || Puntaje: '+bar.puntaje+'</li>'
+            return '<li type="button" class="btn btn-outline-light">'+'Usuario: '+bar.nombre+' || Puntaje: '+bar.puntaje+'</li>'
           })
           document.getElementById("foo").innerHTML = foo;
         })
