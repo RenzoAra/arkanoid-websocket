@@ -23,27 +23,26 @@
       </style>
 
 <div id="particles-js" style="position : absolute; width:100%; height:100%; z-index:-1; background-color: #000000"></div>
-  
   <div class="container">
       <img src="../logo.jpg" width="600" class="img-fluid wall" style="display: block; margin: 0 auto">
   </div>
-
+  <br><br><br>
   <div class="container">
     <center>
       <label id ="nombre" display = 'block' style="display: none">${salida}</label>
       <Form action = "/game" method = "POST">
-        <button id="Iniciar_juego" type="submit" class="btn btn-primary btn-lg" style="margin: 10px; width:240px; height:64px;">Iniciar juego</button>
+        <button id="Iniciar_juego" type="submit" class="btn btn-outline-light btn-lg" style="margin: 10px; width:240px; height:64px;">Iniciar juego</button>
         <Input name="textbox" id="usuario" class="form-control" aria-label="Nombre de usuario:" aria-describedby="inputGroup-sizing-default" type="text" value="${salida}"style="display: none">
       </Form>
       <Form action = "/tabla" method = "POST">
-        <button id="Ranking" type="submit" class="btn btn-primary btn-lg" style="margin: 10px; width:240px; height:64px;">Ver Ranking</button>
+        <button id="Ranking" type="submit" class="btn btn-outline-light btn-lg" style="margin: 10px; width:240px; height:64px;">Ver Ranking</button>
         <Input name="textbox" id="usuario" class="form-control" aria-label="Nombre de usuario:" aria-describedby="inputGroup-sizing-default" type="text" value="${salida}"style="display: none">
       </Form>
       <Form action = "/inst" method = "GET">
-        <button id="Instrucciones" type="submit" class="btn btn-primary btn-lg" style="margin: 10px; width:240px; height:64px;">Instrucciones</button>
+        <button id="Instrucciones" type="submit" class="btn btn-outline-light btn-lg" style="margin: 10px; width:240px; height:64px;">Instrucciones</button>
       </Form>
       <Form action = "/salir" method = "POST">
-        <button id="Salir" type="submit" class="btn btn-primary btn-lg" style="margin: 10px; width:240px; height:64px;">Salir</button>
+        <button id="Salir" type="submit" class="btn btn-outline-light btn-lg" style="margin: 10px; width:240px; height:64px;">Salir</button>
         <Input name="textbox" id="usuario" class="form-control" aria-label="Nombre de usuario:" aria-describedby="inputGroup-sizing-default" type="text" value="${salida}"style="display: none">
       </Form>
     </center>
