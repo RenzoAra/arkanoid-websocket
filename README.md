@@ -1,3 +1,3 @@
 # arkanoid-websocket
 
-<img src="../img/TPIntegrador-Arkanoiv-Elias-Renzo-UCP.gif">
+<a href="gif"><img src="img/TPIntegrador-Arkanoiv-Elias-Renzo-UCP.gif"/></a>
