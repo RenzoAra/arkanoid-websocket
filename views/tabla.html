@@ -39,20 +39,22 @@
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
       var socket = io();
+
+        function renderRanking(data){
+          var foo = data.map(function(bar){
+            return '<li type="button" class="btn btn-outline-light">'+'Usuario: '+bar.nombre+' || Puntaje: '+bar.puntaje+'</li>'
+          })
+          document.getElementById("foo").innerHTML = foo;
+        }
+
         socket.emit('ranking', {nombre: document.getElementById("nombre").innerHTML.toString()});
     
         socket.on('ranking', (data) => {
-          var foo = data.map(function(bar){
-            return '<li type="button" class="btn btn-outline-light">'+'Usuario: '+bar.nombre+' || Puntaje: '+bar.puntaje+'</li>'
-          })
-          document.getElementById("foo").innerHTML = foo;
+          renderRanking(data);
         })
     
         socket.on('nuevoPunto', (data) => {
-          var foo = data.map(function(bar){
-            return '<li type="button" class="btn btn-outline-light">'+'Usuario: '+bar.nombre+' || Puntaje: '+bar.puntaje+'</li>'
-          })
-          document.getElementById("foo").innerHTML = foo;
+          renderRanking(data);
         })
 
         particlesJS.load('particles-js','../particles-tabla.json',function(){
