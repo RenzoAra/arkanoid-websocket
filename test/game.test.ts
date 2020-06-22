@@ -14,7 +14,7 @@ describe('Jugador', function() {
 describe('Jugador', function() {
   it('sumarPuntajeInvitado', function() {
     let j = new Juego()
-    j.añadirInvitado()
+    j.anadirInvitado()
     j.sumarPuntaje(j.tablapuntaje[0].nombre)
     expect(j.tablapuntaje[0].puntaje).equal(1);
   });
@@ -29,10 +29,10 @@ describe('Juego', function() {
 });
 
 describe('Juego', function() {
-  it('añadirJugador', function() {
+  it('anadirJugador', function() {
     let j = new Juego()
     let p = new Jugador("Jose", 0)
-    j.añadirJugador(p)
+    j.anadirJugador(p)
     expect(j.tablapuntaje.length).equal(1);
   });
 });
@@ -45,9 +45,9 @@ describe('Juego', function() {
 });
 
 describe('Juego', function() {
-  it('añadirInvitado', function() {
+  it('anadirInvitado', function() {
     let j = new Juego()
-    j.añadirInvitado()
+    j.anadirInvitado()
     expect(j.tablapuntaje.length).equal(1);
   });
 });
@@ -55,7 +55,7 @@ describe('Juego', function() {
 describe('Juego', function() {
   it('quitarInvitado', function() {
     let j = new Juego()
-    j.quitarInvitado(j.añadirInvitado())
+    j.quitarInvitado(j.anadirInvitado())
     expect(j.tablapuntaje.length).equal(0);
   });
 });
@@ -74,7 +74,7 @@ describe('Juego', function() {
     it('buscarJugadorPorNombre', function() {
       let j = new Juego()
       let p = new Jugador("Jose", 0)
-      j.añadirJugador(p)
+      j.anadirJugador(p)
       expect(j.buscarJugadorPorNombre("Jose")).equal(0);
     });
   });
@@ -83,7 +83,7 @@ describe('Juego', function() {
     it('buscarJugadorPorNombre', function() {
       let j = new Juego()
       let p = new Jugador("Jose", 0)
-      j.añadirJugador(p)
+      j.anadirJugador(p)
       expect(j.buscarJugadorPorNombre("luis")).equal(null);
     });
   });

@@ -37,7 +37,7 @@ app.post('/',function(req,res){
 });
 
   app.post('/Invitado',function(req,res){
-    res.render('menu',{locals:{salida: j.añadirInvitado()}});
+    res.render('menu',{locals:{salida: j.anadirInvitado()}});
     console.log(j.tablapuntaje)
 });
 

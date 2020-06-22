@@ -220,18 +220,19 @@
 
     draw();
 
-    socket.on('ranking', (data) => {
+    function renderRanking(data){
           var foo = data.map(function(bar){
             return '<li type="button" class="btn btn-outline-light">'+'Usuario: '+bar.nombre+' || Puntaje: '+bar.puntaje+'</li>'
           })
           document.getElementById("foo").innerHTML = foo;
-        })
+        }
+
+        socket.on('ranking', (data) => {
+                renderRanking(data)
+            })
     
         socket.on('nuevoPunto', (data) => {
-          var foo = data.map(function(bar){
-            return '<li type="button" class="btn btn-outline-light">'+'Usuario: '+bar.nombre+' || Puntaje: '+bar.puntaje+'</li>'
-          })
-          document.getElementById("foo").innerHTML = foo;
+            renderRanking(data)
         })
 
     particlesJS.load('particles-js','../particles-tabla.json',function(){

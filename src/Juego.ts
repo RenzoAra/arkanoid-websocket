@@ -10,7 +10,7 @@ export class Juego{
         return "Invitado "+Math.floor(Math.random() * 1001);
     }
 
-    public añadirInvitado(){
+    public anadirInvitado(){
         let i = new Jugador(this.crearNombreInvitado(), 1)
         this.tablapuntaje.push(i)
         return i.nombre
@@ -26,7 +26,7 @@ export class Juego{
         this.tablapuntaje.push(new Jugador(nombre, 0))
     }
 
-    public añadirJugador(p : Jugador){
+    public anadirJugador(p : Jugador){
         this.tablapuntaje.push(p)
     }
     

@@ -50,12 +50,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script src="/socket.io/socket.io.js"></script>
   <script>
-    var socket = io();
-
-    socket.emit('ranking', {nombre: document.getElementById("nombre").innerHTML.toString()});
-    
     particlesJS.load('particles-js','../particles.json',function(){
       console.log('particles.json loaded...');
     });
