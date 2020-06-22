@@ -1,6 +1,4 @@
-import {Jugador} from './jugador'
-import { throws } from 'assert';
-
+import {Jugador} from './Jugador'
 
 export class Juego{
 
