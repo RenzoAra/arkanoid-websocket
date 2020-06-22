@@ -12,6 +12,7 @@ app.set('view engine', 'html');
 var body_parser = require('body-parser');
 app.use(body_parser.urlencoded({extended:true}));
 var j = new Juego();
+const PORT = process.env.PORT || 5000;
 
 app.use(express.static(path.join(__dirname,'../particles')));
 
@@ -73,6 +74,6 @@ io.on('connection', function(socket){
   })
 });
 
-http.listen(3000, function(){
+http.listen(PORT, function(){
   console.log('listo en puerto 3000');
 });
